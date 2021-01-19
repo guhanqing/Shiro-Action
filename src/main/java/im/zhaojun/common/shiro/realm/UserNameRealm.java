@@ -45,6 +45,11 @@ public class UserNameRealm extends AuthorizingRealm {
         return token instanceof UsernamePasswordToken;
     }
 
+    /**
+     * @description 获取用户权限
+     * @param principals
+     * @return org.apache.shiro.authz.AuthorizationInfo
+     */
     @Override
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principals) {
         log.info("从数据库获取权限信息");
@@ -61,6 +66,11 @@ public class UserNameRealm extends AuthorizingRealm {
         return authorizationInfo;
     }
 
+    /**
+     * @description 获取用户信息
+     * @param token
+     * @return org.apache.shiro.authc.AuthenticationInfo
+     */
     @Override
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken token) throws AuthenticationException {
         log.info("从数据库获取认证信息");
